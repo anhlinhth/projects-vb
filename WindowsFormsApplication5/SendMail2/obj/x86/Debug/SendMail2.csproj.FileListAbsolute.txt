@@ -1,0 +1,7 @@
+c:\users\anh number one\documents\visual studio 2010\Projects\WindowsFormsApplication5\SendMail2\bin\Debug\SendMail2.exe
+c:\users\anh number one\documents\visual studio 2010\Projects\WindowsFormsApplication5\SendMail2\bin\Debug\SendMail2.pdb
+c:\users\anh number one\documents\visual studio 2010\Projects\WindowsFormsApplication5\SendMail2\obj\x86\Debug\SendMail2.Form1.resources
+c:\users\anh number one\documents\visual studio 2010\Projects\WindowsFormsApplication5\SendMail2\obj\x86\Debug\SendMail2.Properties.Resources.resources
+c:\users\anh number one\documents\visual studio 2010\Projects\WindowsFormsApplication5\SendMail2\obj\x86\Debug\SendMail2.csproj.GenerateResource.Cache
+c:\users\anh number one\documents\visual studio 2010\Projects\WindowsFormsApplication5\SendMail2\obj\x86\Debug\SendMail2.exe
+c:\users\anh number one\documents\visual studio 2010\Projects\WindowsFormsApplication5\SendMail2\obj\x86\Debug\SendMail2.pdb
