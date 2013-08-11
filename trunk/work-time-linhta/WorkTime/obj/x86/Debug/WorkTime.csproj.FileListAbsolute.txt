@@ -1,0 +1,17 @@
+c:\users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\bin\Debug\WorkTime.exe
+c:\users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\bin\Debug\WorkTime.pdb
+c:\users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\obj\x86\Debug\WorkTime.Form1.resources
+c:\users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\obj\x86\Debug\WorkTime.Properties.Resources.resources
+c:\users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\obj\x86\Debug\WorkTime.csproj.GenerateResource.Cache
+c:\users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\obj\x86\Debug\WorkTime.exe
+c:\users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\obj\x86\Debug\WorkTime.pdb
+C:\Users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\obj\x86\Debug\WorkTime.csprojResolveAssemblyReference.cache
+C:\Users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\bin\Debug\WorkTime.exe.config
+C:\Users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\bin\Debug\Database1.mdf
+C:\Users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\bin\Debug\Database1_log.ldf
+C:\Users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\obj\x86\Debug\WorkTime.Frm_ReportTest.resources
+C:\Users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\obj\x86\Debug\WorkTime.FrmMain.resources
+C:\Users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\obj\x86\Debug\WorkTime.Resources.Resource1.resources
+C:\Users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\obj\x86\Debug\WorkTime.Frm_Personnel.resources
+C:\Users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\obj\x86\Debug\WorkTime.Frm_PerRelationcs.resources
+C:\Users\anh number one\documents\visual studio 2010\Projects\WorkTime\WorkTime\obj\x86\Debug\WorkTime.Frm_Add_Sub.resources

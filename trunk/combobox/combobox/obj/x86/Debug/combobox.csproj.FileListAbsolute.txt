@@ -1,0 +1,8 @@
+C:\Users\anh number one\Documents\Visual Studio 2010\Projects\combobox\combobox\bin\Debug\combobox.exe
+C:\Users\anh number one\Documents\Visual Studio 2010\Projects\combobox\combobox\bin\Debug\combobox.pdb
+C:\Users\anh number one\Documents\Visual Studio 2010\Projects\combobox\combobox\obj\x86\Debug\combobox.Form1.resources
+C:\Users\anh number one\Documents\Visual Studio 2010\Projects\combobox\combobox\obj\x86\Debug\combobox.Properties.Resources.resources
+C:\Users\anh number one\Documents\Visual Studio 2010\Projects\combobox\combobox\obj\x86\Debug\combobox.csproj.GenerateResource.Cache
+C:\Users\anh number one\Documents\Visual Studio 2010\Projects\combobox\combobox\obj\x86\Debug\combobox.exe
+C:\Users\anh number one\Documents\Visual Studio 2010\Projects\combobox\combobox\obj\x86\Debug\combobox.pdb
+C:\Users\anh number one\Documents\Visual Studio 2010\Projects\combobox\combobox\obj\x86\Debug\combobox.csprojResolveAssemblyReference.cache
