@@ -41,6 +41,7 @@
             this.txtCC = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTo = new System.Windows.Forms.TextBox();
+            this.btnExcel = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,7 +102,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 150);
+            this.label5.Location = new System.Drawing.Point(46, 150);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 18);
@@ -110,16 +111,16 @@
             // 
             // txtBCC
             // 
-            this.txtBCC.Location = new System.Drawing.Point(74, 147);
+            this.txtBCC.Location = new System.Drawing.Point(98, 147);
             this.txtBCC.Margin = new System.Windows.Forms.Padding(4);
             this.txtBCC.Name = "txtBCC";
-            this.txtBCC.Size = new System.Drawing.Size(594, 24);
+            this.txtBCC.Size = new System.Drawing.Size(570, 24);
             this.txtBCC.TabIndex = 26;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 118);
+            this.label4.Location = new System.Drawing.Point(52, 118);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 18);
@@ -128,16 +129,16 @@
             // 
             // txtCC
             // 
-            this.txtCC.Location = new System.Drawing.Point(74, 115);
+            this.txtCC.Location = new System.Drawing.Point(98, 115);
             this.txtCC.Margin = new System.Windows.Forms.Padding(4);
             this.txtCC.Name = "txtCC";
-            this.txtCC.Size = new System.Drawing.Size(594, 24);
+            this.txtCC.Size = new System.Drawing.Size(570, 24);
             this.txtCC.TabIndex = 24;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 86);
+            this.label3.Location = new System.Drawing.Point(47, 86);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 18);
@@ -146,11 +147,23 @@
             // 
             // txtTo
             // 
-            this.txtTo.Location = new System.Drawing.Point(74, 83);
+            this.txtTo.Location = new System.Drawing.Point(98, 83);
             this.txtTo.Margin = new System.Windows.Forms.Padding(4);
             this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(594, 24);
+            this.txtTo.Size = new System.Drawing.Size(570, 24);
             this.txtTo.TabIndex = 22;
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.BackColor = System.Drawing.Color.Transparent;
+            this.btnExcel.BackgroundImage = global::WindowsFormsApplication5.Properties.Resources.Benjigarner_Softdimension_Excel;
+            this.btnExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnExcel.Location = new System.Drawing.Point(3, 109);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(45, 38);
+            this.btnExcel.TabIndex = 31;
+            this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // Form1
             // 
@@ -158,6 +171,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(668, 540);
+            this.Controls.Add(this.btnExcel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSubject);
             this.Controls.Add(this.richTextBox1);
@@ -196,6 +210,7 @@
         private System.Windows.Forms.TextBox txtCC;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTo;
+        private System.Windows.Forms.Button btnExcel;
     }
 }
 

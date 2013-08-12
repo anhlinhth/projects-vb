@@ -191,5 +191,11 @@ namespace WindowsFormsApplication5
 
             return list;
         }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            frmExcel frmexcel = new frmExcel();
+            frmexcel.ShowDialog();
+        }
     }
 }
