@@ -15,7 +15,7 @@ namespace WindowsFormsApplication5
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmExcel());
+            Application.Run(new Form1());
         }
     }
 }

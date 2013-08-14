@@ -13,6 +13,15 @@ namespace WindowsFormsApplication5
 {
     public partial class frmExcel : Form
     {
+        public delegate void setTo(String mails);
+        public setTo _setTo;
+
+        public delegate void setCC(String mails);
+        public setCC _setCC;
+
+        public delegate void setBCC(String mails);
+        public setBCC _setBCC;
+
         public frmExcel()
         {
             InitializeComponent();
@@ -20,11 +29,12 @@ namespace WindowsFormsApplication5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = "";
             openFileDialog1.Filter = "Excel file|*.xlsx;*.xls";
             
             if(openFileDialog1.ShowDialog()== DialogResult.OK)
             {
+                richTextBox1.Text = "";
+           
                 textBox1.Text = openFileDialog1.FileName;
                 getData(openFileDialog1.FileName);
             }
@@ -81,6 +91,34 @@ namespace WindowsFormsApplication5
             }
 
             return theArray;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if((cbTo.Checked == false && cbCC.Checked == false && cbBCC.Checked == false)||richTextBox1.Text == "" || richTextBox1.Text == null)
+            {
+                MessageBox.Show("Kiểm tra lại thông tin cài đặt !","Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                if (cbTo.Checked == true)
+                {
+                    _setTo(richTextBox1.Text);
+                }
+
+                if (cbCC.Checked == true)
+                {
+                    _setCC(richTextBox1.Text);
+                }
+
+                if (cbBCC.Checked == true)
+                {
+                    _setBCC(richTextBox1.Text);
+                }
+
+                this.Close();
+            }
         }
     }
 }
