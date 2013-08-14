@@ -17,7 +17,12 @@ namespace WindowsFormsApplication5
         public String _userPass = "";
         public bool _logined = false;
 
+        public String _variable = "%$Column";
+
         public String[] _listColumns;
+        public List<String[]> _listData = new List<string[]>();
+
+        public RichTextBox _textbox = new RichTextBox(); 
        
 
         public Form1()
@@ -234,24 +239,28 @@ namespace WindowsFormsApplication5
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                listView1.Clear();
-                listView1.Columns.Add("Mail");
-                listView1.Columns.Add("Contents");
-                listView1.Columns.Add("Contents2");
+                //listView1.Clear();
+                //listView1.Columns.Add("Mail");
+                //listView1.Columns.Add("Contents");
+                //listView1.Columns.Add("Contents2");
+
+                //txtFile.Text = openFileDialog1.FileName;
+
+                //List<String[]> list = getDataExcel(openFileDialog1.FileName);
+                //foreach (String[] it in list)
+                //{
+                //    ListViewItem itemLV = new ListViewItem(it);
+                //    //foreach (String i in it)
+                //    //{
+                //    //    itemLV.SubItems.Add(i);
+                //    //}
+
+                //    listView1.Items.Add(itemLV);
+                //}
 
                 txtFile.Text = openFileDialog1.FileName;
 
-                List<String[]> list = getDataExcel(openFileDialog1.FileName);
-                foreach (String[] it in list)
-                {
-                    ListViewItem itemLV = new ListViewItem(it);
-                    //foreach (String i in it)
-                    //{
-                    //    itemLV.SubItems.Add(i);
-                    //}
-
-                    listView1.Items.Add(itemLV);
-                }
+                setListData(openFileDialog1.FileName);
                
             }
 
@@ -261,41 +270,53 @@ namespace WindowsFormsApplication5
         private void setListData(String fileName)
         {
             listView1.Clear();
+            _listData.Clear();
 
-            for (int iCl = 0; iCl < _listColumns.Length;iCl++ )
-            {
-                listView1.Columns.Add(_listColumns[iCl]);
-            }
-            
-            List<String[]> list = getDataExcel(fileName);
-            foreach (String[] it in list)
-            {
-                ListViewItem itemLV = new ListViewItem(it);
-                //foreach (String i in it)
-                //{
-                //    itemLV.SubItems.Add(i);
-                //}
+           _listData = getDataExcel(fileName);
 
-                listView1.Items.Add(itemLV);
+           if (_listData != null)
+            {
+                for (int iCl = 0; iCl < _listColumns.Length; iCl++)
+                {
+                    listView1.Columns.Add(_listColumns[iCl]);
+                }
+
+
+                foreach (String[] it in _listData)
+                {
+                    ListViewItem itemLV = new ListViewItem(it);
+                    //foreach (String i in it)
+                    //{
+                    //    itemLV.SubItems.Add(i);
+                    //}
+
+                    listView1.Items.Add(itemLV);
+                }
+
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
 
         }
 
         private void getColumns(String fr, String to)
         {
-            _listColumns = null;
-            int keycodeFr = Convert.ToInt32(fr);
-            int keycodeTo = Convert.ToInt32(to);
+           
+            byte[] keyFr = Encoding.ASCII.GetBytes(fr);//.ToInt32(fr);
+            byte[] keyTo = Encoding.ASCII.GetBytes(to); //Convert.ToInt32(to);
 
-            int keycodeNow = keycodeFr;
+            int keycodeFr = Convert.ToInt32(keyFr[0]);
+            int keycodeTo = Convert.ToInt32(keyTo[0]);
+
+            int keycodeNow = 0;
+            keycodeNow = keycodeFr;
              int count =0;
-             KeysConverter keyConverter = new KeysConverter();
+             _listColumns = new String[keycodeTo - keycodeFr +1];
             while(true)
             {
                 if(keycodeNow> keycodeTo)
                     break;
-                
-                _listColumns[count] = keyConverter.ConvertToString(keycodeNow);
+
+                _listColumns[count] = char.ConvertFromUtf32(keycodeNow);//keyConverter.ConvertToString(keycodeNow);
 
                 keycodeNow++;
                 count++;
@@ -306,6 +327,23 @@ namespace WindowsFormsApplication5
         private List<String[]> getDataExcel(String fileName)
         {
             List<String[]> data = new List<string[]>();
+
+            String strFr = "A";
+            String strTo = "B";
+            if (txtColumnF.Text != "" && txtColumnF.Text != null)
+                strFr = txtColumnF.Text;
+            if (txtColumnT.Text != "" && txtColumnT.Text != null)
+                strFr = txtColumnT.Text;
+
+            if ((Convert.ToInt16(char.Parse(strTo)) - Convert.ToInt16(char.Parse(strFr)))<=0)
+            {
+                MessageBox.Show("Cột kết thúc phải đứng sau cột đứng đầu !","Chú ý",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                txtFile.Text = "";
+                txtColumnT.Text = "";
+                txtColumnF.Text = "";
+                return null;
+            }
+
 
             FileInfo finfo;
             Microsoft.Office.Interop.Excel.ApplicationClass ExcelObj = new Microsoft.Office.Interop.Excel.ApplicationClass();
@@ -320,12 +358,7 @@ namespace WindowsFormsApplication5
                 theWorkbook = ExcelObj.Workbooks.Open(fileName, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, false, false);
                 worksheet = (Microsoft.Office.Interop.Excel.Worksheet)theWorkbook.Worksheets.get_Item(1);
 
-                String strFr = "A", strTo = "B";
-                if (txtColumnF.Text != "" && txtColumnF.Text != null)
-                    strFr = txtColumnF.Text;
-                if (txtColumnT.Text != "" && txtColumnT.Text != null)
-                    strFr = txtColumnT.Text;
-
+                
                 getColumns(strFr, strTo);
                 
                 int row = 1;
@@ -370,39 +403,77 @@ namespace WindowsFormsApplication5
 
         private void txtColumnF_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Convert.ToInt16(e.KeyChar) > 90 || Convert.ToInt16(e.KeyChar) < 65)
+            if (Convert.ToInt16(e.KeyChar) < 91 && Convert.ToInt16(e.KeyChar) > 64)
             {
-                e.Handled = true;
-            }
-            else
                 if (txtColumnF.TextLength > 0)
                     e.Handled = true;
+                else
+                    e.Handled = false;
+            }
+            else if( Convert.ToInt16(e.KeyChar) < 32 || Convert.ToInt16(e.KeyChar) == 127)
+            {
+                e.Handled = false;
+            }
+            else
+                e.Handled = true;
         }
 
         private void txtColumnT_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Convert.ToInt16(e.KeyChar) > 90 || Convert.ToInt16(e.KeyChar) < 65)
+            if (Convert.ToInt16(e.KeyChar) < 91 && Convert.ToInt16(e.KeyChar) > 64)
             {
-                e.Handled = true;
-            }
-            else
                 if (txtColumnT.TextLength > 0)
                     e.Handled = true;
+                else
+                    e.Handled = false;
+            }
+            else if (Convert.ToInt16(e.KeyChar) < 32 || Convert.ToInt16(e.KeyChar) == 127)
+            {
+                e.Handled = false;
+            }
+            else
+                e.Handled = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (_logined == false)
+            {
+                MessageBox.Show("Hãy đăng nhập trước khi gửi mail !", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
 
+            foreach(String[] itemMail in _listData)
+            {
+                SmtpClient client = new SmtpClient("smtp.gmail.com");
+                client.UseDefaultCredentials = false;
+                client.Credentials = new System.Net.NetworkCredential(_userMail, _userPass);
+                client.EnableSsl = true;
+                client.SendCompleted += SendComplete;
+
+                MailAddress from = new MailAddress(_userMail);
+            
+
+                MailMessage mail = new MailMessage();
+                mail.From = from;
+                mail.To.Add(new MailAddress(itemMail[0])); 
+                mail.Subject = getContentMail(richTextBox3.Text,itemMail);
+                mail.Body = getContentMail(richTextBox2.Text, itemMail);
+                client.SendAsync(mail, "Fuck");
+            }
+           
         }
 
         private String getContentMail(String content, String[] data)
         {
             String cont = "";
+            cont = richTextBox2.Text;
 
             int countCl = data.Length;
             for (int cl = 0; cl < countCl; cl++)
             {
- 
+                cont = cont.Replace("\""+_variable+_listColumns[cl]+"\"", data[cl]);
             }
 
             return cont;
@@ -410,15 +481,75 @@ namespace WindowsFormsApplication5
 
         private void txtColumnF_TextChanged(object sender, EventArgs e)
         {
-            if(txtFile.Text!= "" && txtFile.Text!=null)
+            if (txtFile.Text != "" && txtFile.Text != null && txtFile.Text != null && txtFile.Text != "")
                 setListData(txtFile.Text);
         }
 
         private void txtColumnT_TextChanged(object sender, EventArgs e)
         {
-            if (txtFile.Text != "" && txtFile.Text != null)
+            if (txtFile.Text != "" && txtFile.Text != null && txtFile.Text != null && txtFile.Text!="")
                 setListData(txtFile.Text);
         }
+
+        private void txtVariable_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Convert.ToInt16(e.KeyChar) < 91 && Convert.ToInt16(e.KeyChar) > 64)
+            {
+                if (txtVariable.TextLength > 0)
+                    e.Handled = true;
+                else
+                    e.Handled = false;
+            }
+            else if (Convert.ToInt16(e.KeyChar) < 32 || Convert.ToInt16(e.KeyChar) == 127)
+            {
+                e.Handled = false;
+            }
+            else
+                e.Handled = true;
+        }
+
+        private void btnAddVariable_Click(object sender, EventArgs e)
+        {
+            if (txtVariable.Text =="" || txtVariable.Text==null )
+            {
+                return;
+            }
+
+            if(_listData == null)
+            {
+                MessageBox.Show("Nhập dữ liệu danh sách Excel trước !", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            String strFr = _listColumns[0];
+            String strTo = _listColumns[_listColumns.Length - 1];
+            if (Convert.ToInt16(char.Parse(strFr)) > Convert.ToInt16(char.Parse(txtVariable.Text)) || Convert.ToInt16(char.Parse(strTo)) < Convert.ToInt16(char.Parse(txtVariable.Text)))
+            {
+                MessageBox.Show("Cột này không có trong dữ liệu lấy được !","Chú ý",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+
+            _textbox.Text += "\""+ _variable+ txtVariable.Text+"\"";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void richTextBox2_Click(object sender, EventArgs e)
+        {
+            _textbox = (RichTextBox)sender;
+        }
+
+        private void richTextBox3_Click(object sender, EventArgs e)
+        {
+            _textbox = (RichTextBox)sender;
+        }
+
+        
 
        
     }
