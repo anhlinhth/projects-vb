@@ -21,3 +21,13 @@ C:\Users\anh number one\Documents\Visual Studio 2010\pro\WindowsFormsApplication
 C:\Users\anh number one\Documents\Visual Studio 2010\pro\WindowsFormsApplication5\WindowsFormsApplication5\obj\x86\Debug\WindowsFormsApplication5.frmLogin.resources
 C:\Users\anh number one\Documents\Visual Studio 2010\pro\WindowsFormsApplication5\WindowsFormsApplication5\obj\x86\Debug\WindowsFormsApplication5.Properties.Resources.resources
 C:\Users\anh number one\Documents\Visual Studio 2010\pro\WindowsFormsApplication5\WindowsFormsApplication5\obj\x86\Debug\SendEmail.csproj.GenerateResource.Cache
+D:\PrivateProj\WindowsFormsApplication5\WindowsFormsApplication5\obj\x86\Debug\SendEmail.csproj.ResolveComReference.cache
+D:\PrivateProj\WindowsFormsApplication5\WindowsFormsApplication5\obj\x86\Debug\WindowsFormsApplication5.exe
+D:\PrivateProj\WindowsFormsApplication5\WindowsFormsApplication5\obj\x86\Debug\WindowsFormsApplication5.pdb
+D:\PrivateProj\WindowsFormsApplication5\WindowsFormsApplication5\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\PrivateProj\WindowsFormsApplication5\WindowsFormsApplication5\obj\x86\Debug\WindowsFormsApplication5.Form1.resources
+D:\PrivateProj\WindowsFormsApplication5\WindowsFormsApplication5\obj\x86\Debug\WindowsFormsApplication5.frmExcel.resources
+D:\PrivateProj\WindowsFormsApplication5\WindowsFormsApplication5\obj\x86\Debug\WindowsFormsApplication5.frmLogin.resources
+D:\PrivateProj\WindowsFormsApplication5\WindowsFormsApplication5\obj\x86\Debug\WindowsFormsApplication5.Properties.Resources.resources
+D:\PrivateProj\WindowsFormsApplication5\WindowsFormsApplication5\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\PrivateProj\WindowsFormsApplication5\WindowsFormsApplication5\obj\x86\Debug\GenerateResource.write.1.tlog
