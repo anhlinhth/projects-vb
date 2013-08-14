@@ -16,6 +16,8 @@ namespace WindowsFormsApplication5
         public String _userMail = "";
         public String _userPass = "";
         public bool _logined = false;
+
+        public String[] _listColumns;
        
 
         public Form1()
@@ -256,6 +258,51 @@ namespace WindowsFormsApplication5
             richTextBox2.Text = "";
         }
 
+        private void setListData(String fileName)
+        {
+            listView1.Clear();
+
+            for (int iCl = 0; iCl < _listColumns.Length;iCl++ )
+            {
+                listView1.Columns.Add(_listColumns[iCl]);
+            }
+            
+            List<String[]> list = getDataExcel(fileName);
+            foreach (String[] it in list)
+            {
+                ListViewItem itemLV = new ListViewItem(it);
+                //foreach (String i in it)
+                //{
+                //    itemLV.SubItems.Add(i);
+                //}
+
+                listView1.Items.Add(itemLV);
+            }
+
+        }
+
+        private void getColumns(String fr, String to)
+        {
+            _listColumns = null;
+            int keycodeFr = Convert.ToInt32(fr);
+            int keycodeTo = Convert.ToInt32(to);
+
+            int keycodeNow = keycodeFr;
+             int count =0;
+             KeysConverter keyConverter = new KeysConverter();
+            while(true)
+            {
+                if(keycodeNow> keycodeTo)
+                    break;
+                
+                _listColumns[count] = keyConverter.ConvertToString(keycodeNow);
+
+                keycodeNow++;
+                count++;
+            }
+          
+        }
+
         private List<String[]> getDataExcel(String fileName)
         {
             List<String[]> data = new List<string[]>();
@@ -273,10 +320,18 @@ namespace WindowsFormsApplication5
                 theWorkbook = ExcelObj.Workbooks.Open(fileName, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, false, false);
                 worksheet = (Microsoft.Office.Interop.Excel.Worksheet)theWorkbook.Worksheets.get_Item(1);
 
+                String strFr = "A", strTo = "B";
+                if (txtColumnF.Text != "" && txtColumnF.Text != null)
+                    strFr = txtColumnF.Text;
+                if (txtColumnT.Text != "" && txtColumnT.Text != null)
+                    strFr = txtColumnT.Text;
+
+                getColumns(strFr, strTo);
+                
                 int row = 1;
                 while (true)
                 {
-                    Microsoft.Office.Interop.Excel.Range rangr = worksheet.get_Range("A" + row.ToString(),"C"+row.ToString());
+                    Microsoft.Office.Interop.Excel.Range rangr = worksheet.get_Range(strFr + row.ToString(), strTo + row.ToString());
                     Object obj = rangr.Cells.Value;
                     System.Array myvalues = (System.Array)obj;
                     string[] strArray = ConvertToStringArray(myvalues);
@@ -313,5 +368,58 @@ namespace WindowsFormsApplication5
             return theArray;
         }
 
+        private void txtColumnF_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Convert.ToInt16(e.KeyChar) > 90 || Convert.ToInt16(e.KeyChar) < 65)
+            {
+                e.Handled = true;
+            }
+            else
+                if (txtColumnF.TextLength > 0)
+                    e.Handled = true;
+        }
+
+        private void txtColumnT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Convert.ToInt16(e.KeyChar) > 90 || Convert.ToInt16(e.KeyChar) < 65)
+            {
+                e.Handled = true;
+            }
+            else
+                if (txtColumnT.TextLength > 0)
+                    e.Handled = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private String getContentMail(String content, String[] data)
+        {
+            String cont = "";
+
+            int countCl = data.Length;
+            for (int cl = 0; cl < countCl; cl++)
+            {
+ 
+            }
+
+            return cont;
+        }
+
+        private void txtColumnF_TextChanged(object sender, EventArgs e)
+        {
+            if(txtFile.Text!= "" && txtFile.Text!=null)
+                setListData(txtFile.Text);
+        }
+
+        private void txtColumnT_TextChanged(object sender, EventArgs e)
+        {
+            if (txtFile.Text != "" && txtFile.Text != null)
+                setListData(txtFile.Text);
+        }
+
+       
     }
 }

@@ -33,7 +33,6 @@
             this.login_logout = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnExcel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSubject = new System.Windows.Forms.TextBox();
@@ -45,14 +44,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtTo = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.txtFile = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.txtColumnT = new System.Windows.Forms.TextBox();
+            this.txtColumnF = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.txtFile = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -113,18 +117,6 @@
             this.tabPage1.Size = new System.Drawing.Size(788, 489);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Gửi mail thông thường";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.LightBlue;
-            this.tabPage2.Controls.Add(this.splitContainer1);
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(788, 489);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Gửi mail cho từng người với nội dung khác nhau";
             // 
             // btnExcel
             // 
@@ -229,17 +221,17 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // tabPage2
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(348, 450);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 32);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "Gửi mail";
-            this.button2.UseVisualStyleBackColor = true;
+            this.tabPage2.BackColor = System.Drawing.Color.LightBlue;
+            this.tabPage2.Controls.Add(this.splitContainer1);
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(788, 489);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Gửi mail cho từng người với nội dung khác nhau";
             // 
             // splitContainer1
             // 
@@ -258,60 +250,16 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.PaleGreen;
+            this.splitContainer1.Panel2.Controls.Add(this.txtColumnT);
+            this.splitContainer1.Panel2.Controls.Add(this.txtColumnF);
+            this.splitContainer1.Panel2.Controls.Add(this.label6);
+            this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.button3);
             this.splitContainer1.Panel2.Controls.Add(this.txtFile);
             this.splitContainer1.Panel2.Controls.Add(this.listView1);
             this.splitContainer1.Size = new System.Drawing.Size(788, 443);
             this.splitContainer1.SplitterDistance = 262;
             this.splitContainer1.TabIndex = 36;
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox2.Location = new System.Drawing.Point(1, 44);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(260, 399);
-            this.richTextBox2.TabIndex = 36;
-            this.richTextBox2.Text = "";
-            // 
-            // listView1
-            // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.Location = new System.Drawing.Point(1, 44);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(518, 399);
-            this.listView1.TabIndex = 35;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // txtFile
-            // 
-            this.txtFile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFile.Location = new System.Drawing.Point(3, 10);
-            this.txtFile.Name = "txtFile";
-            this.txtFile.Size = new System.Drawing.Size(421, 24);
-            this.txtFile.TabIndex = 36;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(430, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(86, 32);
-            this.button3.TabIndex = 37;
-            this.button3.Text = "Chọn file";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // textBox1
             // 
@@ -327,6 +275,103 @@
             this.textBox1.TabIndex = 38;
             this.textBox1.Text = "Nội dung";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox2.Location = new System.Drawing.Point(1, 44);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(260, 399);
+            this.richTextBox2.TabIndex = 36;
+            this.richTextBox2.Text = "";
+            // 
+            // txtColumnT
+            // 
+            this.txtColumnT.Location = new System.Drawing.Point(111, 10);
+            this.txtColumnT.Name = "txtColumnT";
+            this.txtColumnT.Size = new System.Drawing.Size(42, 24);
+            this.txtColumnT.TabIndex = 44;
+            this.txtColumnT.TextChanged += new System.EventHandler(this.txtColumnT_TextChanged);
+            this.txtColumnT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtColumnT_KeyPress);
+            // 
+            // txtColumnF
+            // 
+            this.txtColumnF.Location = new System.Drawing.Point(55, 10);
+            this.txtColumnF.Name = "txtColumnF";
+            this.txtColumnF.Size = new System.Drawing.Size(42, 24);
+            this.txtColumnF.TabIndex = 43;
+            this.txtColumnF.TextChanged += new System.EventHandler(this.txtColumnF_TextChanged);
+            this.txtColumnF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtColumnF_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(94, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(22, 18);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "->";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 18);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Từ cột";
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(430, 6);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(86, 32);
+            this.button3.TabIndex = 37;
+            this.button3.Text = "Chọn file";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // txtFile
+            // 
+            this.txtFile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFile.Location = new System.Drawing.Point(216, 10);
+            this.txtFile.Name = "txtFile";
+            this.txtFile.Size = new System.Drawing.Size(208, 24);
+            this.txtFile.TabIndex = 36;
+            // 
+            // listView1
+            // 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.Location = new System.Drawing.Point(1, 44);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(518, 399);
+            this.listView1.TabIndex = 35;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(348, 450);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(112, 32);
+            this.button2.TabIndex = 33;
+            this.button2.Text = "Gửi mail";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -385,6 +430,10 @@
         private System.Windows.Forms.TextBox txtFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtColumnT;
+        private System.Windows.Forms.TextBox txtColumnF;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label2;
     }
 }
 

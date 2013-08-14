@@ -5,3 +5,12 @@ c:\users\anh number one\documents\visual studio 2010\Projects\WindowsFormsApplic
 c:\users\anh number one\documents\visual studio 2010\Projects\WindowsFormsApplication5\SendMail2\obj\x86\Debug\SendMail2.csproj.GenerateResource.Cache
 c:\users\anh number one\documents\visual studio 2010\Projects\WindowsFormsApplication5\SendMail2\obj\x86\Debug\SendMail2.exe
 c:\users\anh number one\documents\visual studio 2010\Projects\WindowsFormsApplication5\SendMail2\obj\x86\Debug\SendMail2.pdb
+D:\PrivateProj\WindowsFormsApplication5\SendMail2\bin\Debug\SendMail2.exe
+D:\PrivateProj\WindowsFormsApplication5\SendMail2\bin\Debug\SendMail2.pdb
+D:\PrivateProj\WindowsFormsApplication5\SendMail2\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\PrivateProj\WindowsFormsApplication5\SendMail2\obj\x86\Debug\SendMail2.Form1.resources
+D:\PrivateProj\WindowsFormsApplication5\SendMail2\obj\x86\Debug\SendMail2.Properties.Resources.resources
+D:\PrivateProj\WindowsFormsApplication5\SendMail2\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\PrivateProj\WindowsFormsApplication5\SendMail2\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\PrivateProj\WindowsFormsApplication5\SendMail2\obj\x86\Debug\SendMail2.exe
+D:\PrivateProj\WindowsFormsApplication5\SendMail2\obj\x86\Debug\SendMail2.pdb
