@@ -46,6 +46,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnAddVariable = new System.Windows.Forms.Button();
+            this.txtVariable = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.txtColumnT = new System.Windows.Forms.TextBox();
@@ -57,6 +60,8 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.button2 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -243,7 +248,12 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Ivory;
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.splitContainer1.Panel1.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.richTextBox3);
+            this.splitContainer1.Panel1.Controls.Add(this.label7);
+            this.splitContainer1.Panel1.Controls.Add(this.btnAddVariable);
+            this.splitContainer1.Panel1.Controls.Add(this.txtVariable);
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             this.splitContainer1.Panel1.Controls.Add(this.richTextBox2);
             // 
@@ -261,31 +271,60 @@
             this.splitContainer1.SplitterDistance = 262;
             this.splitContainer1.TabIndex = 36;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(93, 18);
+            this.label7.TabIndex = 46;
+            this.label7.Text = "Giá trị ở cột :";
+            // 
+            // btnAddVariable
+            // 
+            this.btnAddVariable.Location = new System.Drawing.Point(176, 8);
+            this.btnAddVariable.Name = "btnAddVariable";
+            this.btnAddVariable.Size = new System.Drawing.Size(75, 32);
+            this.btnAddVariable.TabIndex = 45;
+            this.btnAddVariable.Text = "Nhập";
+            this.btnAddVariable.UseVisualStyleBackColor = true;
+            this.btnAddVariable.Click += new System.EventHandler(this.btnAddVariable_Click);
+            // 
+            // txtVariable
+            // 
+            this.txtVariable.Location = new System.Drawing.Point(127, 12);
+            this.txtVariable.Name = "txtVariable";
+            this.txtVariable.Size = new System.Drawing.Size(42, 24);
+            this.txtVariable.TabIndex = 44;
+            this.txtVariable.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVariable_KeyPress);
+            // 
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.BackColor = System.Drawing.Color.Ivory;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(5, 16);
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(3, 105);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(256, 19);
+            this.textBox1.Size = new System.Drawing.Size(256, 26);
             this.textBox1.TabIndex = 38;
             this.textBox1.Text = "Nội dung";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // richTextBox2
             // 
             this.richTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox2.Location = new System.Drawing.Point(1, 44);
+            this.richTextBox2.Location = new System.Drawing.Point(1, 128);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(260, 399);
+            this.richTextBox2.Size = new System.Drawing.Size(260, 315);
             this.richTextBox2.TabIndex = 36;
             this.richTextBox2.Text = "";
+            this.richTextBox2.Click += new System.EventHandler(this.richTextBox2_Click);
             // 
             // txtColumnT
             // 
@@ -349,6 +388,7 @@
             this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(1, 44);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(518, 399);
@@ -372,6 +412,33 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox3.Location = new System.Drawing.Point(6, 72);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(250, 23);
+            this.richTextBox3.TabIndex = 47;
+            this.richTextBox3.Text = "";
+            this.richTextBox3.Click += new System.EventHandler(this.richTextBox3_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.BackColor = System.Drawing.Color.Ivory;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(3, 48);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(256, 26);
+            this.textBox2.TabIndex = 48;
+            this.textBox2.Text = "Tiêu đề";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
@@ -434,6 +501,11 @@
         private System.Windows.Forms.TextBox txtColumnF;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnAddVariable;
+        private System.Windows.Forms.TextBox txtVariable;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.RichTextBox richTextBox3;
     }
 }
 
