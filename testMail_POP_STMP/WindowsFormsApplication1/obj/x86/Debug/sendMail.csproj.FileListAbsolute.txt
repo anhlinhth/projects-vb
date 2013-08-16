@@ -1,0 +1,9 @@
+C:\Users\LinhTA\Documents\Visual Studio 2010\Projects\testMail_POP_STMP\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\LinhTA\Documents\Visual Studio 2010\Projects\testMail_POP_STMP\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\LinhTA\Documents\Visual Studio 2010\Projects\testMail_POP_STMP\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\LinhTA\Documents\Visual Studio 2010\Projects\testMail_POP_STMP\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\LinhTA\Documents\Visual Studio 2010\Projects\testMail_POP_STMP\WindowsFormsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\LinhTA\Documents\Visual Studio 2010\Projects\testMail_POP_STMP\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\LinhTA\Documents\Visual Studio 2010\Projects\testMail_POP_STMP\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\LinhTA\Documents\Visual Studio 2010\Projects\testMail_POP_STMP\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\LinhTA\Documents\Visual Studio 2010\Projects\testMail_POP_STMP\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
