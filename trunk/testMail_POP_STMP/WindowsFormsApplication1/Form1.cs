@@ -22,15 +22,17 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            sendMail();
+            login();
         }
 
         private void login()
         {
             TcpClient tcpClient = new TcpClient();
-            tcpClient.Connect("pop.vng.com.vn", 995);
+            tcpClient.Connect("pop.zing.vn", 110);
+            
             SslStream netStream = new SslStream(tcpClient.GetStream());
-            netStream.AuthenticateAsClient("pop.vng.com.vn");//dùng để sử dụng dịch vụ bảo mật của server;
+            
+            netStream.AuthenticateAsClient("pop.zing.vn");//dùng để sử dụng dịch vụ bảo mật của server;
             StreamReader rd = new StreamReader(netStream);
             StreamWriter wt = new StreamWriter(netStream);
 
@@ -42,7 +44,7 @@ namespace WindowsFormsApplication1
             //WriteBuffer = enc.GetBytes("USER " + "haivllinhtavn@gmail.com"+"\r\n");//txtUsername.Text+cbxDomains.Text
             //netStream.Write(WriteBuffer, 0, WriteBuffer.Length);// gửi thông điệp lên server;
             //netStream.Flush();
-            wt.Write("USER linhta@vng.com.vn\r\n");
+            wt.Write("USER anhlinhth@zing.vn\r\n");
             wt.Flush();
             ReadBuffer = rd.ReadLine();
             if (!ReadBuffer.StartsWith("+OK"))// username hợp lệ
@@ -52,7 +54,7 @@ namespace WindowsFormsApplication1
             }
 
 
-            WriteBuffer = enc.GetBytes("PASS " + "Conga1!1" + "\r\n");
+            WriteBuffer = enc.GetBytes("PASS " + "173663242" + "\r\n");
             netStream.Write(WriteBuffer, 0, WriteBuffer.Length);
             netStream.Flush();
 
@@ -77,6 +79,7 @@ namespace WindowsFormsApplication1
             client.Credentials = new System.Net.NetworkCredential(mailF, "173663242");
             client.EnableSsl = true;
             client.SendCompleted += SendComplete;
+            
 
             MailAddress from = new MailAddress(mailF);
             MailMessage mail = new MailMessage();
