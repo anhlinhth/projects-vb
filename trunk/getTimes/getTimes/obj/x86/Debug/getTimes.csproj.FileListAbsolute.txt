@@ -1,0 +1,8 @@
+c:\users\anh number one\documents\visual studio 2010\Projects\getTimes\getTimes\bin\Debug\getTimes.exe
+c:\users\anh number one\documents\visual studio 2010\Projects\getTimes\getTimes\bin\Debug\getTimes.pdb
+c:\users\anh number one\documents\visual studio 2010\Projects\getTimes\getTimes\obj\x86\Debug\getTimes.Form1.resources
+c:\users\anh number one\documents\visual studio 2010\Projects\getTimes\getTimes\obj\x86\Debug\getTimes.Properties.Resources.resources
+c:\users\anh number one\documents\visual studio 2010\Projects\getTimes\getTimes\obj\x86\Debug\getTimes.csproj.GenerateResource.Cache
+c:\users\anh number one\documents\visual studio 2010\Projects\getTimes\getTimes\obj\x86\Debug\getTimes.exe
+c:\users\anh number one\documents\visual studio 2010\Projects\getTimes\getTimes\obj\x86\Debug\getTimes.pdb
+c:\users\anh number one\documents\visual studio 2010\Projects\getTimes\getTimes\obj\x86\Debug\getTimes.csproj.ResolveComReference.cache
