@@ -41,7 +41,8 @@ namespace getTimes
         {
             if (recordding == true)
             {
-                insertTime();
+                if (!insertTime())
+                    e.Cancel = true;
             }
             
         }
@@ -67,7 +68,8 @@ namespace getTimes
             if (recordding == false)
                 return;
             
-            insertTime();
+            if(!insertTime())
+                return;
             recordding = false;
             timer1.Stop();
             timer2.Stop();
@@ -140,13 +142,17 @@ namespace getTimes
             }
         }
 
-        private void insertTime()
+        private bool insertTime()
         {
-            insertToEx(start.ToLongDateString(), textBox2.Text, lblH.Text + lblhc.Text + lblM.Text);
 
-            time = 0;
-            lblH.Text = "0";
-            lblM.Text = "0";
+            if (insertToEx(start.ToLongDateString(), textBox2.Text, lblH.Text + lblhc.Text + lblM.Text))
+            {
+                time = 0;
+                lblH.Text = "0";
+                lblM.Text = "0";
+                return true;
+            }
+            else return false;
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -162,10 +168,19 @@ namespace getTimes
             textBox1.Text = openFileDialog1.FileName;
         }
 
-        private void insertToEx(String start,String job, String time)
+        private bool insertToEx(String start,String job, String time)
         {
+
             String fileTemp = Path.GetDirectoryName(Application.ExecutablePath)+@"\temp2.xls" ;
             String fileS = textBox1.Text;
+
+            File.Delete(fileTemp);
+
+            if (IsFileInUse(fileS))
+            {
+                MessageBox.Show("Close process using file excel !", "Warrning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
           
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel.Workbook workBook = excel.Workbooks.Open(fileS);
@@ -179,7 +194,7 @@ namespace getTimes
                 row = 1;
             else
                 row = range.Rows.Count + 1;
-            MessageBox.Show(row.ToString());
+           
             sheet.Cells[row, 1] = start;
             sheet.Cells[row, 2] = job;
             sheet.Cells[row, 3] = time;
@@ -193,6 +208,31 @@ namespace getTimes
             File.Delete(fileS);
             File.Move(fileTemp, fileS);
             File.Delete(fileTemp);
+
+            return true;
+        }
+
+        public static bool IsFileInUse(string fileFullPath)
+        {
+            if (System.IO.File.Exists(fileFullPath))
+            {
+                try
+                {
+                    //if this does not throw exception then the file is not use by another program
+                    using (FileStream fileStream = File.OpenWrite(fileFullPath))
+                    {
+                        if (fileStream == null)
+                            return true;
+                    }
+                    return false;
+                }
+                catch
+                {
+                    return true;
+                }
+            }
+            else 
+                return false;
         }
        
     }
